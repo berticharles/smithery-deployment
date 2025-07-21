@@ -34,10 +34,10 @@ volumes:
 *   Este arquivo define as senhas e configurações. Copie e cole o seguinte conteúdo nele:
 ```env
 # Senha para o banco de dados PostgreSQL
-POSTGRES_PASSWORD=SubstituaPorUmaSenhaMuitoForteParaOSeuDB
+POSTGRES_PASSWORD=Scbmsegmnvb87@
 
 # Chave secreta para a aplicação Smithery
-SECRET_KEY=SubstituaPorOutraSenhaMuitoForteEUnica
+SECRET_KEY=*Scbmsegmnvs87@
 
 # URL pública pela qual você acessará o Smithery
-PUBLIC_URL=https://smithery.seudominio.com
+PUBLIC_URL=https://abacato-smithery.bvkuzw.easypanel.host
