@@ -1,43 +1,6 @@
 version: '3.8'
 
 services:
-  db:
-    image: postgres:15
-    restart: always
-    environment:
-      - POSTGRES_DB=${POSTGRES_DB:-smithery}
-      - POSTGRES_USER=${POSTGRES_USER:-smithery}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?Please set a password}
-    volumes:
-      - db-data:/var/lib/postgresql/data
-
   app:
     image: ghcr.io/smithery-ai/smithery:latest
     restart: always
-    environment:
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-smithery}:${POSTGRES_PASSWORD:?Please set a password}@db:5432/${POSTGRES_DB:-smithery}
-      - REDIS_URL=redis://redis:6379
-      - PUBLIC_URL=${PUBLIC_URL:?Please set the public url}
-      - SECRET_KEY=${SECRET_KEY:?Please set a secret key}
-    depends_on:
-      - db
-      - redis
-
-  redis:
-    image: redis:7
-    restart: always
-
-volumes:
-  db-data:
-```3.  **Crie o arquivo de ambiente `.env`:**
-*   No mesmo repositório, crie um novo arquivo chamado `.env`.
-*   Este arquivo define as senhas e configurações. Copie e cole o seguinte conteúdo nele:
-```env
-# Senha para o banco de dados PostgreSQL
-POSTGRES_PASSWORD=Scbmsegmnvb87@
-
-# Chave secreta para a aplicação Smithery
-SECRET_KEY=*Scbmsegmnvs87@
-
-# URL pública pela qual você acessará o Smithery
-PUBLIC_URL=https://abacato-smithery.bvkuzw.easypanel.host
